@@ -1,7 +1,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>mmd.js - The minimalist markdown parser in JS.</title>
+<title>t2t.js - The minimalist txt2tags parser in JS.</title>
 <style>
 body
 {
@@ -58,26 +58,257 @@ article li
 
 </style>
 </head>
-<body><article id='parsed'><noscript id='md'>
+<body><article id='parsed'><noscript id='t2t'>
 
-# Hello, this is mmd.js
 
-[mmd.js](mmd.js) is a standalone minimalist Markdown parser written in ~815 bytes of JavaScript.
+TXT2TAGS SAMPLE
+Aurelio Jargas
+%%mtime(%m/%d/%Y)
 
-All the cool kids use Markdown. If you are not familiar with it already, have a look at the [original Markdown syntax](http://daringfireball.net/projects/markdown/syntax). Check the source code of this page, it is written in Markdown and parsed using [mmd.js](mmd.js).
+%!encoding: UTF-8
+
+This text is before the introduction.
+
+But it's OK.
+
+=  Introduction  =
+
+Welcome to the txt2tags sample file.
+
+Here you have examples and a brief explanation of all
+marks.
+
+The first 3 lines of the this file are used as headers,
+on the following format:
+```
+line1: document title
+line2: author name, email
+line3: date, version
+```
+
+Lines with balanced equal signs = around are titles.
+
+% a secret comment!
+%TODO link to program site http://txt2tags.org
+
+
+=  Fonts and Beautifiers  =
+
+We have two sets of fonts:
+
+The NORMAL type that can be improved with beautifiers.
+
+The TYPEWRITER type that uses monospaced font for
+pre-formatted text.
+
+We will now enter on a subtitle...
+
+
+==  Beautifiers  ==
+
+The text marks for beautifiers are simple, just as you
+type on a plain text email message.
+
+We use double *, /, - and _ to represent **bold**,
+//italic//, --strike-- and __underline__.
+
+The **//bold italic//** style is also supported as a
+combination.
+
+
+              ==  Pre-Formatted Text  ==
+
+We can put a code sample or other pre-formatted text:
+```
+  here    is     pre-formatted
+//marks// are  **not**  ``interpreted``
+```
+
+And also, it's easy to put a one line pre-formatted
+text:
+``` prompt$ ls /etc
+
+Or use ``pre-formatted`` inside sentences.
+
+
+                ==  More Cosmetics  ==
+
+Special entities like email (duh@somewhere.com) and
+URL (http://www.duh.com) are detected automagically,
+as long as the horizontal line:
+
+--------------------------------------------------------
+^ thin or large v
+========================================================
+
+You can also specify an [explicit link http://duh.org]
+or an [explicit email duh@somewhere.com] with label.
+
+And remember,
+	A TAB in front of the line does a quotation.
+		More TABs, more depth (if allowed).
+Nice.
+
+
+                      =  Lists  =
+
+A list of items is natural, just putting a **dash** or
+a **plus** at the beginning of the line.
+
+
+                  ==  Plain List  ==
+
+The dash is the default list identifier. For sublists,
+just add **spaces** at the beginning of the line. More
+spaces, more sublists.
+
+- Earth
+  - America
+    - South America
+      - Brazil
+        - How deep can I go?
+  - Europe
+    - Lots of countries
+- Mars
+  - Who knows?
+
+
+The list ends with **two** consecutive blank lines.
+
+
+                 ==  Numbered List  ==
+
+The same rules as the plain list, just a different
+identifier (plus).
+
++ one
++ two
++ three
+  - mixed lists!
+  - what a mess
+    + counting again
+    + ...
++ four
+
+
+                ==  Definition List  ==
+
+The definition list identifier is a colon, followed by
+the term. The term contents is placed on the next line.
+
+: orange
+  a yellow fruit
+: apple
+  a green or red fruit
+: other fruits
+  - wee!
+  - mixing lists
+    + again!
+    + and again!
+
+
+                     =  Tables  =
+
+Use pipes to compose table rows and cells.
+Double pipe at the line beginning starts a heading row.
+Natural spaces specify each cell alignment.
+
+  | cell 1.1  |  cell 1.2   |   cell 1.3 |
+  | cell 2.1  |  cell 2.2   |   cell 2.3 |
+  | cell 3.1  |  cell 3.2   |   cell 3.3 |
+
+|| heading 1 |  heading 2  |  heading 3 |
+ | cell 1.1  |  cell 1.2   |   cell 1.3 |
+ | cell 2.1  |  cell 2.2   |   cell 2.3 |
+
+ |_ heading 1 |  cell 1.1   |   cell 1.2 |
+  | heading 2 |  cell 2.1   |   cell 2.2 |
+  | heading 3 |  cell 3.1   |   cell 3.2 |
+
+|/ heading   |  heading 1  |  heading 2 |
+ | heading 1 |  cell 1.1   |   cell 1.2 |
+ | heading 2 |  cell 2.1   |   cell 2.2 |
+
+Without the last pipe, no border:
+
+  | cell 1.1  |  cell 1.2   |   cell 1.3
+  | cell 2.1  |  cell 2.2   |   cell 2.3
+  | cell 3.1  |  cell 3.2   |   cell 3.3
+
+|| heading 1 |  heading 2  |  heading 3
+ | cell 1.1  |  cell 1.2   |   cell 1.3
+ | cell 2.1  |  cell 2.2   |   cell 2.3
+
+ |_ heading 1 |  cell 1.1   |   cell 1.2
+  | heading 2 |  cell 2.1   |   cell 2.2
+  | heading 3 |  cell 3.1   |   cell 3.2
+
+|/ heading   |  heading 1  |  heading 2
+ | heading 1 |  cell 1.1   |   cell 1.2
+ | heading 2 |  cell 2.1   |   cell 2.2
+
+                =  Special Entities  =
+
+Because things were too simple.
+
+
+                    ==  Images  ==
+
+The image mark is as simple as it can be: ``[filename]``.
+
+                      [img/photo.jpg]  
+
+And with some targets the image is linkable :
+
+                      [[img/photo.jpg] http://www.txt2tags.org]  
+
+- The filename must end in PNG, JPG, GIF, or similar.
+- No spaces inside the brackets!
+
+
+                     ==  Other  ==
+When the target needs, special chars like <, > and &
+are escaped.
+
+The handy ``%%date`` macro expands to the current date.
+
+So today is %%date on the ISO ``YYYYMMDD`` format.
+
+You can also specify the date format with the %? flags,
+as ``%%date(%m-%d-%Y)`` which gives: %%date(%m-%d-%Y).
+
+That's all for now.
+
+-------------------------------------------------------
+%%% TRANSLATOR: Uncomment and translate the next two lines
+%Translated by John Smith.
+%-------------------------------------------------------
+[img/t2tpowered.png] ([%%infile %%infile])
+
+% vim: tw=55
+
+
+
+
+
+# Hello, this is t2t.js
+
+[t2t.js](t2t.js) is a standalone minimalist Markdown parser written in ~815 bytes of JavaScript.
+
+All the cool kids use Markdown. If you are not familiar with it already, have a look at the [original Markdown syntax](http://daringfireball.net/projects/markdown/syntax). Check the source code of this page, it is written in Markdown and parsed using [t2t.js](t2t.js).
 
 ## Why so small ?
 
-[mmd.js](mmd.js) is only small because of its simple design and feature set. Using dirty size optimization tricks it should be possible to reach the 5-600 bytes mark. Maybe smaller. Except that's not the idea. Enough yak shaving!
+[t2t.js](t2t.js) is only small because of its simple design and feature set. Using dirty size optimization tricks it should be possible to reach the 5-600 bytes mark. Maybe smaller. Except that's not the idea. Enough yak shaving!
 
-## How does **mmd.js** work ?
+## How does **t2t.js** work ?
 
 The input text is split into blocks separated by one or more blank lines. The type of each block is determined by checking the first character of the block. Headers, HTML and paragraphs are handled separetely. Multi line blocks are split using a regular expression. HTML escaping and span elements ( link, images, emphasis ) are processed for each line of the blocks. This allow to be close to the original Markdown syntax.
 
-## How to use **mmd.js** ?
+## How to use **t2t.js** ?
 
-    <script src=mmd.min.js></script>
-	<script>console.log( mmd('Markdown is **sweet**') );</script>
+    <script src=t2t.js></script>
+	<script>console.log( t2t('Txt2tags is **sweet**') );</script>
 
 ## Supported features
 
@@ -99,28 +330,28 @@ The input text is split into blocks separated by one or more blank lines. The ty
 
 ## Supported browsers
 
-So far [mmd.js](mmd.js) has been tested in recent versions of Opera ( all flavours including Mini ), Chrome and Firefox. Pull requests addressing compatibility issues are most welcome, esp. regarding IE and Safari.
+So far [t2t.js](t2t.js) has been tested in recent versions of Opera ( all flavours including Mini ), Chrome and Firefox. Pull requests addressing compatibility issues are most welcome, esp. regarding IE and Safari.
 
 ## Why ?
 
-[mmd.js](mmd.js) is the result of some very intensive yak shaving. Let's be honest, it was just an excuse to procastinate and do something different.
+[t2t.js](t2t.js) is the result of some very intensive yak shaving. Let's be honest, it was just an excuse to procastinate and do something different.
 
 
 That's all folks.
 
 </noscript></article>
-<script src='mmd.min.js'></script>
+<script src='t2t.js'></script>
 <script>
 
 onload = function()
 {
 	var $ = function(id){ return document.getElementById(id); };
-    var src = $('md').textContent;
+    var src = $('t2t').textContent;
     var then = Date.now();
-    var html = mmd(src);
+    var html = t2t(src);
     var now = Date.now();
 
-    document.title += ' Just parsed '+ src.length +' md -> '+ html.length +'b html in '+ (now-then) +'ms';
+    document.title += ' Just parsed '+ src.length +' t2t -> '+ html.length +'b html in '+ (now-then) +'ms';
     $('parsed').innerHTML = html;
 }
 

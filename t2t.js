@@ -1,4 +1,4 @@
-;function mmd(src)
+;function t2t(src)
 {
 	var h='';
 
@@ -9,11 +9,16 @@
 	function inlineEscape(s)
 	{
 		return escape(s)
+			.replace(/\=\=\=([^*]+)\=\=\=/g, '<h3>$1</h3>')
+			.replace(/\=\=([^*]+)\=\=/g, '<h2>$1</h2>')
+			.replace(/\=([^*]+)\=/g, '<h1>$1</h1>')
 			.replace(/!\[([^\]]*)]\(([^(]+)\)/g, '<img alt="$1" src="$2">')
 			.replace(/\[([^\]]+)]\(([^(]+)\)/g, '$1'.link('$2'))
 			.replace(/`([^`]+)`/g, '<code>$1</code>')
-			.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-			.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+			.replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>')
+			.replace(/\-\-([^*]+)\-\-/g, '<s>$1</s>')
+			.replace(/\/\/([^*]+)\/\//g, '<i>$1</i>')
+			.replace(/\_\_([^*]+)\_\_/g, '<u>$1</u>');
 	}
 
 	src
@@ -25,7 +30,7 @@
 		f=b[0];
 		R=
 		{
-			'*':[/\n\* /,'<ul><li>','</li></ul>'],
+			'-':[/\n\* /,'<ul><li>','</li></ul>'],
 			'1':[/\n[1-9]\d*\.? /,'<ol><li>','</li></ol>'],
 			' ':[/\n    /,'<pre><code>','</pre></code>','\n'],
 			'>':[/\n> /,'<blockquote>','</blockquote>','\n']
