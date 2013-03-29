@@ -1,6 +1,9 @@
 
 
 
+%!target: rst 
+
+
 
 = Hello, this is t2t.js =
 
@@ -28,20 +31,17 @@ The input text is split into blocks separated by one or more blank lines. The ty
 == Supported features ==
 
  - Headers
- - Ordered lists 1
- - Unordered lists *
+ - Inline emphasis such as bold, italic, strike, underline
  - Paragraphs
- - Links
- - Images !
- - Inline // emphasis *//
- - Inline ** emphasis ****
+ - Links (some bugs)
+ - Images (some bugs)
 
 
 == Unsupported features ==
 
- - References and IDs
- - Escaping of Markdown characters
- - Nesting
+ - Regex
+ - Preproc / Postproc
+ - Ordered and unordered lists (bug)
 
 
 == Supported browsers ==
