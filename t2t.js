@@ -9,9 +9,11 @@
 	function inlineEscape(s)
 	{
 		return escape(s)
-			.replace(/\=\=\=([^*]+)\=\=\=/g, '<h3>$1</h3>')
-			.replace(/\=\=([^*]+)\=\=/g, '<h2>$1</h2>')
-			.replace(/\=([^*]+)\=/g, '<h1>$1</h1>')
+			.replace(/\s*=====([^*]+)=====/, '<h5>$1</h5>')
+			.replace(/\s*====([^*]+)====/, '<h4>$1</h4>')
+			.replace(/\s*===([^*]+)===/, '<h3>$1</h3>')
+			.replace(/\s*==([^*]+)==/, '<h2>$1</h2>')
+			.replace(/\s*=([^*]+)=/, '<h1>$1</h1>')
 			.replace(/!\[([^\]]*)]\(([^(]+)\)/g, '<img alt="$1" src="$2">')
 			.replace(/\[([^\]]+)]\(([^(]+)\)/g, '$1'.link('$2'))
 			.replace(/`([^`]+)`/g, '<code>$1</code>')
@@ -22,8 +24,8 @@
 	}
 
 	src
-	.replace(/^\s+|\r|\s+$/g, '')
-	.replace(/\t/g, '    ')
+	//.replace(/^\s+|\r|\s+$/g, '')
+	//.replace(/\t/g, '    ')
 	.split(/\n\n+/)
 	.forEach(function(b, f, R)
 	{
@@ -31,8 +33,8 @@
 		R=
 		{
 			'-':[/\n\* /,'<ul><li>','</li></ul>'],
-			'1':[/\n[1-9]\d*\.? /,'<ol><li>','</li></ol>'],
-			' ':[/\n    /,'<pre><code>','</pre></code>','\n'],
+		//	'1':[/\n[1-9]\d*\.? /,'<ol><li>','</li></ol>'],
+		//	' ':[/\n    /,'<pre><code>','</pre></code>','\n'],
 			'>':[/\n> /,'<blockquote>','</blockquote>','\n']
 		}[f];
 		h+=

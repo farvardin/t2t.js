@@ -1,0 +1,56 @@
+
+
+
+
+= Hello, this is t2t.js =
+
+t2t.js is a standalone minimalist Markdown parser written in JavaScript.
+It is based on https://github.com/p01/mmd.js
+
+All the cool kids use Txt2tags. If you are not familiar with it already, have a look at the [txt2tags syntax http://txt2tags.org/markup.html]. Check the source code of this page, it is written in Txt2tags and parsed using t2t.js.
+
+== Why so small ? ==
+
+t2t.js is only small because of its simple design and feature set. Using dirty size optimization tricks it should be possible to reach the 5-600 bytes mark. Maybe smaller. Except that's not the idea. Enough yak shaving!
+
+== How does t2t.js work ? ==
+
+The input text is split into blocks separated by one or more blank lines. The type of each block is determined by checking the first character of the block. Headers, HTML and paragraphs are handled separetely. Multi line blocks are split using a regular expression. HTML escaping and span elements ( link, images, emphasis ) are processed for each line of the blocks. This allow to be close to the original Markdown syntax.
+
+== How to use t2t.js ? ==
+
+```
+  <script src=t2t.js></script>
+  <script>console.log(t2t('Txt2tags is **sweet**') );</script>
+
+```
+
+== Supported features ==
+
+ - Headers #
+ - Blockquotes &gt;
+ - Ordered lists 1
+ - Unordered lists *
+ - Paragraphs
+ - Links
+ - Images !
+ - Inline // emphasis *//
+ - Inline ** emphasis ****
+
+
+== Unsupported features ==
+
+ - References and IDs
+ - Escaping of Markdown characters
+ - Nesting
+
+
+== Supported browsers ==
+
+So far t2t.js has been tested in recent versions of Opera ( all flavours including Mini ), Chrome and Firefox. Pull requests addressing compatibility issues are most welcome, esp. regarding IE and Safari.
+
+== Why ? ==
+
+t2t.js is the result of some very intensive yak shaving. Let's be honest, it was just an excuse to procastinate and do something different.
+
+That's all folks.
