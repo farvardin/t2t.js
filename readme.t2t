@@ -7,10 +7,11 @@
 
 = Hello, this is t2t.js =
 
-t2t.js is a standalone minimalist Markdown parser written in JavaScript.
-It is based on https://github.com/p01/mmd.js
+t2t.js is a standalone minimalist Txt2tags parser written in JavaScript.
+It is based on https://github.com/p01/mmd.js (which is a markdown parser).
 
 All the cool kids use Txt2tags. If you are not familiar with it already, have a look at the [txt2tags syntax http://txt2tags.org/markup.html]. Check the source code of this page, it is written in Txt2tags and parsed using t2t.js.
+
 
 == Why so small ? ==
 
