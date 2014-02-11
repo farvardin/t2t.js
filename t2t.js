@@ -10,7 +10,7 @@
 	{
 		return escape(s)
 			//.replace(/^- /, '\r<ul><li>')
-			//.replace(/^- /, '<ul><li>')
+			//.replace(/^- /, '<ul><li>') 
 			//.replace(/(?:^|\n|\r|\r\n|\u0x0A)- ([^*]+)(?:$|\n|\r|\r\n|\u0x0A)/gm, '<ul><li>$1</li></ul>')
 			.replace(/^- ([^*]+)$/gm, '<ul><li>$1</li></ul>')
 			//.replace(/^\s*- ([^*]+)$/gm, '<ul><li><li>$1</li></li>')
