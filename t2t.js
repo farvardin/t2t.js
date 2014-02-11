@@ -2,7 +2,7 @@
 {
 	var h='';
 
-	function escape(t)
+	function escape(t) 
 	{
 		return new Option(t).innerHTML;
 	}

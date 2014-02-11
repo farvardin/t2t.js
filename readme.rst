@@ -18,7 +18,7 @@ t2t.js is only small because of its simple design and feature set. Using dirty s
 How does t2t.js work ?
 ======================
 
-The input text is split into blocks separated by one or more blank lines. The type of each block is determined by checking the first character of the block. Headers, HTML and paragraphs are handled separetely. Multi line blocks are split using a regular expression. HTML escaping and span elements ( link, images, emphasis ) are processed for each line of the blocks. This allow to be close to the original Markdown syntax.
+The input text is split into blocks separated by one or more blank lines. The type of each block is determined by checking the first character of the block. Headers, HTML and paragraphs are handled separetely. Multi line blocks are split using a regular expression. HTML escaping and span elements ( link, images, emphasis ) are processed for each line of the blocks. This allow to be close to the original Txt2tags syntax.
 
 
 How to use t2t.js ?
@@ -49,6 +49,10 @@ Unsupported features
  - Regex
  - Preproc / Postproc
  - Ordered and unordered lists (bug)
+ - problems with some links
+ - pre-formatted area
+ - raw area
+ - tables
 
 
 Supported browsers
